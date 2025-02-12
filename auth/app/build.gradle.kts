@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.investidorapp"
+    namespace = "com.example.auth"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.investidorapp"
+        applicationId = "com.example.auth"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -41,37 +41,35 @@ android {
 }
 
 dependencies {
-    implementation(platform("com.google.firebase:firebase-bom:33.7.0")) // Versão compatível com Kotlin 1.9.10
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-messaging-ktx:24.1.0")
 
-    // Jetpack Compose
-    implementation(platform("androidx.compose:compose-bom:2023.09.01"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation (libs.androidx.compiler)
 
-    implementation ("com.google.firebase:firebase-messaging-ktx:24.1.0")
-    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.firestore.ktx)
 
-    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation(libs.play.services.auth)
 
-    // Navigation Compose
-    implementation("androidx.navigation:navigation-compose:2.7.2")
-
-    // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-
-    // Lifecycle
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.ui.test.junit4)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }

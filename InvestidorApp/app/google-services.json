@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:685098295031:android:a181dc103769cbff727df2",
+        "mobilesdk_app_id": "1:685098295031:android:5c46ec9d43f660c5727df2",
         "android_client_info": {
-          "package_name": "InvestidorApp1.com"
+          "package_name": "com.example.investidorapp"
         }
       },
       "oauth_client": [],
